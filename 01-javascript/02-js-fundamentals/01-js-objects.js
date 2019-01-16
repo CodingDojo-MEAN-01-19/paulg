@@ -4,7 +4,7 @@ function challenge1(students) {
         console.log(`name: ${ students.name }, cohort: ${ students.cohort }`)
     };
 };
-
+ 
 var students = [
     {name: 'Remy', cohort: 'Jan'},
     {name: 'Genevieve', cohort: 'March'},

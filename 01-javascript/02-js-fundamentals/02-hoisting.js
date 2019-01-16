@@ -56,7 +56,7 @@ var mean = function() { //error
 }
 console.log(food); //not defined
 
-
+ 
 //actual output
 //error mean is not a function
 
