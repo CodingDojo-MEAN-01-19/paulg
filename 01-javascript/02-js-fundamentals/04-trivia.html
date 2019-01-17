@@ -1,1 +1,41 @@
-<!-- 2 hours -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        const urlList = ["https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple", "https://opentdb.com/api.php?amount=10&category=11&difficulty=medium&type=multiple", 
+        "https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple"]
+        
+        $(document).ready(function(){
+            $( "button" ).click(function(){
+                for (var url of urlList) {
+                    $.get(url, buildGame)
+                    $( ".primary" ).append("<div class='question'></div>")
+                    function buildGame(data){
+                        var gameData = data.results;
+                        for (var i = 0; i < 10; i++) {
+                            $( ".question" ).append("<p class='title'></p>\n<p class='answer1'></p>\n<p class='answer2'></p>\n<p class='answer3'></p>\n<p class='answer4'></p>")
+                            $( ".title" ).text(gameData[i].question)
+                            $( ".answer1" ).text(gameData[i].correct_answer)
+                            $( ".answer2" ).text(gameData[i].incorrect_answers[0])
+                            $( ".answer3" ).text(gameData[i].incorrect_answers[1])
+                            $( ".answer4" ).text(gameData[i].incorrect_answers[2])
+                        }
+                    }
+                }
+            })
+        });
+    </script>
+    <title>Movie Trivia!</title>
+</head>
+<body>
+    <div class="container">
+        <button>Click here to start game!</button>
+        <div class="primary"></div>
+    </div>
+</body>
+</html>
