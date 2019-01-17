@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- forgot to add this, took forever to figure that out-->
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.get("https://api.github.com/users/ptgoldberg", displayName)
+
+                function displayName(data) {
+                    $("p").text(data.name)
+                    console.log(data.name)
+                }
+
+            });
+        });
+    </script>
 </head>
 <body>
-    <button type="button" onclick="$.get('https://api.github.com/users/ptgoldberg', displayName)">Click Me!</button>
+    <button>Click Me!</button>
+    <p></p>
 </body>
 </html>
