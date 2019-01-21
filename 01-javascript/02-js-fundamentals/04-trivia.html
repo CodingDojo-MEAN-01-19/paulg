@@ -15,19 +15,22 @@
                 for (var url of urlList) {
                     $.get(url, buildGame)
                     $( ".primary" ).append("<div class='question'></div>")
+
                     function buildGame(data){
                         var gameData = data.results;
+
                         for (var i = 0; i < 10; i++) {
+
                             $( ".question" ).append("<p class='title'></p>\n<p class='answer1'></p>\n<p class='answer2'></p>\n<p class='answer3'></p>\n<p class='answer4'></p>")
                             $( ".title" ).text(gameData[i].question)
                             $( ".answer1" ).text(gameData[i].correct_answer)
                             $( ".answer2" ).text(gameData[i].incorrect_answers[0])
                             $( ".answer3" ).text(gameData[i].incorrect_answers[1])
                             $( ".answer4" ).text(gameData[i].incorrect_answers[2])
-                        }
-                    }
-                }
-            })
+                        };
+                    };
+                };
+            });
         });
     </script>
     <title>Movie Trivia!</title>
