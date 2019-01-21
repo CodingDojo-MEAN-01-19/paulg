@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+        
+            $("#targ").click(function(){
+                $.get("https://anapioficeandfire.com/api/houses/378", houseFacts)
+
+                function houseFacts(data) {
+                    $(".name").text(data.name)
+                    $(".region").text(data.region)
+                    $(".words").text(data.words)
+                    $(".titles").text(data.titles)
+                }
+            });
+            $("#lan").click(function(){
+                $.get("https://anapioficeandfire.com/api/houses/229", houseFacts)
+
+                function houseFacts(data) {
+                    $(".name").text(data.name)
+                    $(".region").text(data.region)
+                    $(".words").text(data.words)
+                    $(".titles").text(data.titles)
+                }
+            });
+            $("#bara").click(function(){
+                $.get("https://anapioficeandfire.com/api/houses/17", houseFacts)
+
+                function houseFacts(data) {
+                    $(".name").text(data.name)
+                    $(".region").text(data.region)
+                    $(".words").text(data.words)
+                    $(".titles").text(data.titles)
+                }
+            });
+            $("#stark").click(function(){
+                $.get("https://anapioficeandfire.com/api/houses/362", houseFacts)
+
+                function houseFacts(data) {
+                    $(".name").text(data.name)
+                    $(".region").text(data.region)
+                    $(".words").text(data.words)
+                    $(".titles").text(data.titles)
+                }
+            });
+        });
+    </script>
+    <script>
+        $( ".house" ).css("border", "2px black")
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <button id="stark"><img src="/01-javascript/02-js-fundamentals/05-trivia/stark.jpg"></button>
+        <button id="targ"><img src="/01-javascript/02-js-fundamentals/05-trivia/targaryen.jpg"></button>
+        <button id="lan"><img src="/01-javascript/02-js-fundamentals/05-trivia/lannister.jpg"></button>
+        <button id="bara"><img src="/01-javascript/02-js-fundamentals/05-trivia/baratheon.png"></button>
+
+        <div class="house">
+            <h3>House Details</h3>
+            <p class="name"></p>
+            <p class="region"></p>
+            <p class="words"></p>
+            <p class="titles"></p>
+        </div>
+    </div>
+</body>
+</html>
