@@ -2,20 +2,18 @@ function CreateNinja(name) {
     
     this.name = name;
     this.health = 100;
-    this.speed = 3;
-    this.strength = 3;
-
-    var self = this;
+    var speed = 3;
+    var strength = 3;
 
     this.sayName = function() {
         console.log("Ninja name: " + this.name);
     }
 
-    this.showStats = function() {
+    CreateNinja.prototype.showStats = function() {
         console.log("Ninja name: " + this.name + " Ninja strength: " + this.strength + " Ninja speed: " + this.speed + " Ninja health: " + this.health);
     }
 
-    this.drinkSake = function() {
+    CreateNinja.prototype.drinkSake = function() {
         this.health = this.health + 10
         console.log("Ninja health: " + this.health)
     }
