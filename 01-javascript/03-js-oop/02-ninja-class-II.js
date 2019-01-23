@@ -27,7 +27,7 @@ function CreateNinja(name) {
 
     this.kick = function(otherNinja) {
         if (otherNinja instanceof CreateNinja) {
-            let damage = this.strength * 15
+            const damage = this.strength * 15
             otherNinja.health -= damage
             console.log(otherNinja.name + 'was kicked by ' + this.name + ' and lost' + damage + ' health!')
         }
@@ -39,3 +39,9 @@ steve.sayName();
 steve.showStats();
 steve.drinkSake();
 steve.showStats();
+
+var jack = new CreateNinja("Jack");
+
+jack.punch(steve)
+jack.kick(steve)
+steve.showStats()
