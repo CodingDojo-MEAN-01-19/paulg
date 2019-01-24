@@ -18,18 +18,18 @@ function CreateNinja(name) {
         console.log("Ninja health: " + this.health)
     }
 
-    this.punch = function(otherNinja) {
+    CreateNinja.prototype.punch = function(otherNinja) {
         if (otherNinja instanceof CreateNinja) {
             otherNinja.health -= 5
             console.log(otherNinja.name + 'was punched by ' + this.name + ' and lost 5 health!')
         }
     }
 
-    this.kick = function(otherNinja) {
+    CreateNinja.prototype.kick = function(otherNinja) {
         if (otherNinja instanceof CreateNinja) {
-            const damage = this.strength * 15
+            const damage = strength * 15
             otherNinja.health -= damage
-            console.log(otherNinja.name + 'was kicked by ' + this.name + ' and lost' + damage + ' health!')
+            console.log(otherNinja.name + ' was kicked by ' + this.name + ' and lost ' + damage + ' health!')
         }
     }
 };
