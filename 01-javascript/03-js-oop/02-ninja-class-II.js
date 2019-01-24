@@ -22,6 +22,7 @@ function CreateNinja(name) {
         if (otherNinja instanceof CreateNinja) {
             otherNinja.health -= 5
             console.log(otherNinja.name + 'was punched by ' + this.name + ' and lost 5 health!')
+            return this
         }
     }
 
@@ -30,6 +31,7 @@ function CreateNinja(name) {
             const damage = strength * 15
             otherNinja.health -= damage
             console.log(otherNinja.name + ' was kicked by ' + this.name + ' and lost ' + damage + ' health!')
+            return this
         }
     }
 };
