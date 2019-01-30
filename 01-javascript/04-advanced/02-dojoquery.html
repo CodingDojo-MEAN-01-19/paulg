@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DojoQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h3 id="hover_id">Mouse over this!</h3>
+    <h3 id="click_id">Click this!</h3>
+    <script> 
+        function $Dojo(id) {
+            this.myId = document.getElementById(id);
+            this.click = function (callback) {
+                this.myId.addEventListener("click", callback);
+            };
+
+            this.hover = function (hoverin, hoverout) {
+                this.myId.addEventListener("mouseover", hoverin);
+                this.myId.addEventListener("mouseout", hoverout);
+            };
+
+            return this;
+        }
+        $Dojo("click_id").click(function() { console.log("The button was clicked!") });
+        $Dojo("hover_id").hover(function() { console.log("The button was hovered on!") });
+    </script>
+</body>
+</html>
