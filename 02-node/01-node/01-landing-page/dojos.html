@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>My Registration Form</h3>
+        <form action="process.php" method="post">
+            <p>Name</p>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name">
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <label for="password_con">Password Confirmation:</label>
+            <input type="password" id="password_con" name="password_con">
+
+            <p>Select your gender:</p>
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <br>
+            <label for="female">Female</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <br>
+            <label for="decline">Decline</label>
+            <input type="radio" id="decline" name="gender" value="decline">
+        
+            
+            <p>Describe Yourself:</p>
+            <textarea name="description"></textarea>
+            <br>
+            <br>
+            <label for="fav_lang">Favorite Language:</label>
+            <select id="fav_lang">
+                <option value="JavaScript">JavaScript</option>
+                <option value="HTML">HTML</option>
+                <option value="Basic">Basic</option>
+                <option value="Binary">Binary</option>
+                <option value="Fremen">Fremen</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
