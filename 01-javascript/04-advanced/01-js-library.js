@@ -4,16 +4,16 @@ var _ = {
         array[i] = callback(array[i]);
       }
     },
-    reduce: function(array, callback, memo){
-        let el = 0;
-        if (!memo){
-          memo = array[0];
-          el = 1;
+    reduce: function(array, callback, rem){
+        let numb = 0;
+        if (!rem){
+          rem = array[0];
+          numb = 1;
         }
-        for (let i = el; i < array.length; i++) {
-          memo = callback(array[i], memo);
+        for (let i = numb; i < array.length; i++) {
+          rem = callback(array[i], rem);
         }
-        return memo;
+        return rem;
   
     },
     find: function(array, callback) {
@@ -24,21 +24,21 @@ var _ = {
       }
     },
     filter: function(array, callback) {
-      const tempArray = [];
+      const newArray = [];
       for (let i = 0; i < array.length; i++) {
         if (callback(array[i])) {
-          tempArray.push(array[i]);
+          newArray.push(array[i]);
         }
       }
-      return tempArray;
+      return newArray;
     },
     reject: function(array, callback) {
-      const tempArray = [];
+      const newArray = [];
       for (let i = 0; i < array.length; i++) {
         if (!callback(array[i])) {
-          tempArray.push(array[i]);
+          newArray.push(array[i]);
         }
       }
-      return tempArray;
+      return newArray;
     },
   }
