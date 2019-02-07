@@ -1,0 +1,48 @@
+use my_first_db
+
+db.createCollection('students')
+
+db.students.insert({name: "Paul", home_state: "California", lucky_number "13", birthday: {month: 06, day: 15, year: 1990}})
+db.students.insert({name: "Camille", home_state: "California", lucky_number "32", birthday: {month: 09, day: 08, year: 1989}})
+db.students.insert({name: "Kalie", home_state: "Montana", lucky_number "101", birthday: {month: 06, day: 30, year: 1994}})
+db.students.insert({name: "Tom", home_state: "Washington", lucky_number "3", birthday: {month: 07, day: 04, year: 1990}})
+db.students.insert({name: "Connor", home_state: "Texas", lucky_number "4", birthday: {month: 12, day: 25, year: 1944}})
+
+db.students.find({}) // find all
+
+db.students.find().pretty() // find all in a better format
+
+db.students.find({home_state: "California})
+db.students.find({home_state: "Washington})
+db.students.find({$or: [{home_state: "Washington}, {home_state: "California"}]})
+
+db.students.find({lucky_number:{$gt:3}})
+
+db.students.update({},{$set: {"interests":['coding', 'brunch', 'MongoDB']}},{multi:true})
+
+db.students.update({name: "Paul"}, {$push: {interests: {$each:['reading', 'video games']}}})
+db.students.update({name: "Camille"}, {$push: {interests: {$each:['pottery', 'sushi']}}})
+db.students.update({name: "Kalie"}, {$push: {interests: {$each:['curly hair', 'driving']}}})
+db.students.update({name: "Tom"}, {$push: {interests: {$each:['soccer', 'fishing']}}})
+db.students.update({name: "Connor"}, {$push: {interests: {$each:['guitar', 'girlfriends']}}})
+
+db.students.update({name: "Paul"},{$push: {interests: "taxes"}})
+
+db.students.update({name: "Paul"},{$pull: {interests: "taxes"}}
+
+db.students.remove({home_state:"California"})
+
+db.students.remove({name:"Kalie"})
+
+db.students.remove({lucky_number: {$gt:5}}, {justOne:true})
+
+db.students.update({},{$set: {"number_of_belts":0}},{multi:true})
+
+db.students.update({},{$set: {"number_of_belts":1}},{multi:true})
+db.students.update({home_state: "Washington"},{$inc: {number_of_belts: 1}},{multi:true})
+
+db.students.update({}, {$rename: {"number_of_belts":"belts_earned"}})
+
+db.students.update({}, {$unset:{lucky_number:""}},{multi:true})
+
+db.students.update({}, {$currentDate:{updated_on:true}},{multi:true})
