@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <title>Dojo Survey</title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var socket = io();
+            socket.on('updated_message', function(data) {
+                $('#results').show();
+                $('#results').empty();
+                $('#results').append("<p>" + data.msg + ".</p>");
+            });
+            socket.on('random_number', function(data) {
+                $('#results').append("<p>Your lucky number emitted by the server is" + data.number + ".</p>");
+            });
+            $('#submit').click(function() {
+                socket.emit('updated_message', {firstname: $('#firstname').val(), lastname: $('#lastname').val(), dojolocation: $('#dojolocation').val(), favlanguage: $('#favlanguage').val(), comment: $('#comment').val() });
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="results"><p></p></div>
+        <form action="" id='survey_form'>
+            <h2>User Survey</h2>
+            First name: <br>
+            <input type='text' name="firstname" id="firstname"><br>
+            Last name: <br>
+            <input type='text' name="lastname"id="firstname"><br>
+            Dojo location: <br>
+            <select name='dojolocation' id="dojolocation">
+                <option = name='locationSeattle'>Seattle/Bellevue</option>
+                <option = name='locationLA'>Los Angeles</option>
+                <option = name='locationSJ'>San Jose</option>
+                <option = name='locationNYC'>New York</option>
+                <option = name='locationInternet'>Online</option>
+            </select><br>
+            Favorite Language: <br>
+            <select name='favlanguage' id="favlanguage">
+                <option = name='languagePY'>Python</option>
+                <option = name='languageJS'>JavaScript</option>
+                <option = name='languageHTML'>HTML</option>
+                <option = name='languageFR'>French</option>
+                <option = name='languageHI'>Hindi</option>
+            </select><br>
+            Comment (optional): <textarea name='comment' id="comment"></textarea><br>
+            <input type='submit' value='Submit' id="submit">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
