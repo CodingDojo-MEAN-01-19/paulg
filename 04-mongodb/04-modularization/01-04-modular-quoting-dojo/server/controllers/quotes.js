@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Quote = mongoose.model('NewQuote')
+var Quote = mongoose.model('NewQuote');
 
 module.exports = {
     
