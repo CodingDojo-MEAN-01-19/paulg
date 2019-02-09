@@ -21,7 +21,8 @@ mongoose.model('NewQuote', QuoteSchema);
 var Quote = mongoose.model('NewQuote')
 mongoose.Promise = global.Promise;
 
-require('./server/config/routes.js')(app)
+/* require('./server/config/database'); */
+require('./server/config/routes')(app);
 
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
