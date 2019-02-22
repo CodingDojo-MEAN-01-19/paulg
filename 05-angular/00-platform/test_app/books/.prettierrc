@@ -1,0 +1,13 @@
+{
+  "overrides": [
+    {
+      "files": ".pretierrc",
+      "options": { "parser": "json" }
+    }
+  ],
+  "printWidth": 80,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "tabWidth": 4,
+  "trailingComma": "es5"
+}
