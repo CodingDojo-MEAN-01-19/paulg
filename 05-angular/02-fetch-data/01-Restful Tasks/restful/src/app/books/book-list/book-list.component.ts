@@ -2,17 +2,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { BOOKS } from '../../data';
 import { Book } from '../../models';
+import { SearchPipe } from 'src/app/search.pipe';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
+  providers: [SearchPipe]
 })
 export class BookListComponent implements OnInit {
   books: Book[] = BOOKS;
-  selectedBook: Book
+  selectedBook: Book;
+  filter: Book = new Book(false);
 
-  constructor() { }
+  constructor(private search: SearchPipe) { }
 
   ngOnInit() { }
 
@@ -25,4 +28,7 @@ export class BookListComponent implements OnInit {
     console.log('selecting', book);
   }
 
+  clearFilter(): void {
+    this.filter = new Book(false);
+  }
 }

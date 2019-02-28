@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookNewComponent } from './books/book-new/book-new.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
-    declarations: [AppComponent, BookListComponent, BookNewComponent, BookDetailComponent],
+    declarations: [AppComponent, BookListComponent, BookNewComponent, BookDetailComponent, SearchPipe],
     imports: [BrowserModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
