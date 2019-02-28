@@ -9,7 +9,7 @@ module.exports = {
    },
 
   show(req, res) {
-    const { book_id: bookId } = request.params;
+    const { book_id: bookId } = req.params;
 
     Book.findById(bookId)
       .then(book => res.json(book))
@@ -22,27 +22,27 @@ module.exports = {
       .then(book => res.json(book))
       .catch(error => {
         const errors = Object.keys(error.errors).map(key => error.errors[key].message);
-        res.status(Http.MovedPermanently).json(error)
+        res.status(Http.UnprocessableEntity).json(error)
       });
 
    },
 
   update(req, res) {
-    const { book_id: bookId } = request.params;
+    const { book_id: bookId } = req.params;
     Book.findByIdAndUpdate(bookId, req.body, { new: true })
       .then(book => res.json(book))
       .catch(error => {
         const errors = Object.keys(error.errors).map(key => error.errors[key].message);
-        res.status(Http.MovedPermanently).json(error)
+        res.status(Http.UnprocessableEntity).json(error)
       });
    },
 
   destroy(req, res) {
-    const { book_id: bookId } = request.params;
+    const { book_id: bookId } = req.params;
 
     Book.findByIdAndRemove(bookId)
       .then(book => res.json(book))
-      .catch(error => res.status(Http.MovedPermanently).json(error))
+      .catch(error => res.status(Http.UnprocessableEntity).json(error))
    }
 
 }

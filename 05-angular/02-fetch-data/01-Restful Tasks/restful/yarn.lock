@@ -10,7 +10,7 @@
     "@angular-devkit/core" "7.3.3"
     rxjs "6.3.3"
 
-"@angular-devkit/build-angular@~0.13.0":
+"@angular-devkit/build-angular@^0.13.3":
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.13.3.tgz#82a6bb884cd7bc4d8dfbfa8cb7c7702c01dc77e8"
   integrity sha512-UxD6UR/tXypMA4lqCiXLtcStI4wuIHLOJLwADmazndFjg1oLqH1onO6UQPHJ1drAUl+AzA5zTQZHzWYokxaLtg==

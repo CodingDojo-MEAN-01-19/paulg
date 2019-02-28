@@ -1,32 +1,15 @@
-<section>
-  <fieldset>
-      <legend>Create Book</legend>
-
-      {{ bookForm.value | json }}
-
-      <form (submit)="bookForm.valid && onSubmit($event, bookForm)" #bookForm="ngForm">
-          <div>
-              <label for="">title</label>
-              <input type="text" name="title" [(ngModel)]="book.title" required minlength="3"/>
-          </div>
-          <div>
-              <label for="">author</label>
-              <input type="text" name="author" [(ngModel)]="book.author" required minlength="3"/>
-          </div>
-          <div>
-              <label for="">year</label>
-              <input type="number" name="year" [(ngModel)]="book.year"/>
-          </div>
-          <div>
-              <label for="">pages</label>
-              <input type="number" name="pages" [(ngModel)]="book.pages"/>
-          </div>
-          <div>
-              <label for="">publisher</label>
-              <input type="text" name="publisher" [(ngModel)]="book.publisher"/>
-          </div>
-
-          <button [disabled]='bookForm.invalid' >Submit</button>
-      </form>
-  </fieldset>
-</section>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+  <body>
+    <div class="container">
+      <app-book-list></app-book-list>
+    </div>
+  </body>
+</html>
