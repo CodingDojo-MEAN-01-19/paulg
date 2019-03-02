@@ -3,17 +3,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Restful Tasks</title>
     <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
   <body>
-    <div class="container">
-      <h1>Restful Tasks Interactive</h1>
-      <button (click)='pullAllTasks()'>Get All Tasks</button>
-      <div>
-
-      </div>
+  <h1>Restful Tasks Interactive</h1>
+  <button (click)='pullAllTasks()'>Get All Tasks</button>
+  <div *ngIf='taskList'>
+    <div *ngFor='let task of taskList'>
+      <p>{{ task.title }}</p>
+      <button (click)='showDetails(task)'>Show</button>
     </div>
-  </body>
-</html>
+  </div>
+  <div *ngIf='selectedTask'>
+    <ul>Title: {{ selectedTask.title }}</ul>
+    <ul>Description: {{ selectedTask.description }}</ul>
+    <ul>Task Completed: {{ selectedTask.complete }}</ul>
+  </div>
+</body>
+

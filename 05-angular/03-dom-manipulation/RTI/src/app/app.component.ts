@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Task } from './models'
+import { Task } from './models';
+import { TASKS } from './data';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,16 @@ import { Task } from './models'
 })
 export class AppComponent {
   title = 'RTI';
-  task = new Task();
-  taskList
+  taskList;
+  selectedTask: Task;
 
   constructor() {}
 
   pullAllTasks() {
-    this.taskList = []
+    this.taskList = TASKS;
+  }
+
+  showDetails(task: Task) {
+    this.selectedTask = this.selectedTask === task ? null : task;
   }
 }
