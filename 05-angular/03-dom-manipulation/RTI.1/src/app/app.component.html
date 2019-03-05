@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restful Tasks</title>
+    <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+  <body>
+  <h1>Restful Tasks Interactive</h1>
+  <legend>Create Book</legend>
+      <form (submit)="onSubmit(taskForm)" #taskForm="ngForm">
+          <div>
+              <label for="">Title</label>
+              <input type="text" name="title" [(ngModel)]="task.title" required minlength="3"/>
+          </div>
+          <div>
+              <label for="">Description</label>
+              <input type="text" name="description" [(ngModel)]="task.description" required minlength="3"/>
+          </div>
+
+          <button>Submit</button>
+      </form>
+  <div>
+    <div *ngFor='let task of taskList'>
+      <p>{{ task.title }}</p>
+      <button (click)='editTask(task)'>Edit</button>
+    </div>
+  </div>
+  <div *ngIf='selectedTask'>
+    <form (submit)="onEdit(editForm)" #editForm="ngForm">
+      <div>
+          <label for="">Title</label>
+          <input type="text" name="title" value='selectedTask.title' [(ngModel)]="task.title" required minlength="3"/>
+      </div>
+      <div>
+          <label for="">Description</label>
+          <input type="text" name="description" value='selectedTask.description' [(ngModel)]="task.description" required minlength="3"/>
+      </div>
+
+      <button>Submit Edit</button>
+  </form>
+  </div>
+</body>
+
