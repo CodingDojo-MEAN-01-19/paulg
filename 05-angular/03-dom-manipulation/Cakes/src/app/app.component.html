@@ -1,0 +1,30 @@
+<section>
+  <fieldset>
+    <legend>Rate My Cake</legend>
+    <form (submit)="cakeForm.valid && onSubmit($event, cakeForm)" #cakeForm='ngForm' id='submitCake'>
+      <label for="baker">Baker Name:</label>
+      <input type="text" name="baker" [(ngModel)] = 'cake.baker' placeholder="Alton Brown" required minlength="3">
+      <label for="url">Image URL:</label>
+      <input type="text" name="url" [(ngModel)] = 'cake.url' placeholder="url.com/website" required minlength="3">
+      <button [disabled]='cakeForm.invalid'>Submit</button>
+    </form>
+  </fieldset>
+  <div *ngIf='cakeList'>
+      <div *ngFor='let curr of cakeList'>
+        <img src="{{ curr.url }}" alt="Image of cake by {{ curr.baker }}">
+        <form (submit)="submitRating($event, curr, cakeRating)" #cakeRating='ngForm' id='ratingForm'>
+          <select name='rating' form='ratingForm' [(ngModel)]='ratings.rating'>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+          </select>
+          <textarea name="comment" id="comment" cols="30" rows="10" [(ngModel)]='ratings.comment'></textarea>
+          <button>Rate!</button>
+        </form>
+      </div>
+    </div>
+</section>
+
+

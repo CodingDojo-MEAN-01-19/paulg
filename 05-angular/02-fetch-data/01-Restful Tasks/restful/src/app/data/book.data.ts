@@ -2,7 +2,7 @@ import { Book } from '../models';
 
 export const BOOKS: Book[] = [
   {
-    id: randomId(),
+    id: randomId(1),
     title: 'Stranger in a Strange Land',
     author: 'Robert Heinlein',
     year: 1951,
@@ -10,7 +10,7 @@ export const BOOKS: Book[] = [
     publisher: 'Delacorte Press'
   },
   {
-    id: randomId(),
+    id: randomId(2),
     title: 'Slaughter-House 5',
     author: 'Kurt Vonnegut',
     year: 1951,
@@ -18,7 +18,7 @@ export const BOOKS: Book[] = [
     publisher: 'Breakfast Press'
   },
   {
-    id: randomId(),
+    id: randomId(3),
     title: 'La La Land',
     author: 'Robert Duvall',
     year: 1951,
@@ -27,6 +27,6 @@ export const BOOKS: Book[] = [
   }
 ];
 
-function randomId(): number {
-  return Math.floor(Math.random() * 100);
+function randomId(num): number {
+  return Math.floor(Math.random() * 100 + num);
 };
