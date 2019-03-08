@@ -1,5 +1,3 @@
-import { Rating } from './rating.model';
-
 export class Cake {
   id: number;
   baker: string;
@@ -11,4 +9,12 @@ export class Cake {
       this.id = Math.floor(Math.random() * 1000);
     };
   };
+}
+
+export class Rating {
+  constructor(
+    public id: number,
+    public stars: number,
+    public comment: string
+  ) {}
 }

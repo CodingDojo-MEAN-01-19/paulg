@@ -1,0 +1,16 @@
+<section style='display: inline-block;vertical-align: top;padding:15px'>
+  <fieldset>
+    <legend>Rate My Cake</legend>
+    <form (submit)="onSubmit($event, cakeForm)" #cakeForm='ngForm'>
+      <div>
+        <label for="">Baker Name:</label>
+        <input type="text" name="baker" [(ngModel)] = 'cake.baker' placeholder="Alton Brown" required minlength="3">
+      </div>
+      <div>
+        <label for="">Image URL:</label>
+        <input type="text" name="url" [(ngModel)] = 'cake.url' placeholder="url.com/website" required minlength="3">
+      </div>
+      <button *ngIf='cakeForm.valid'>Submit</button>
+    </form>
+  </fieldset>
+</section>
