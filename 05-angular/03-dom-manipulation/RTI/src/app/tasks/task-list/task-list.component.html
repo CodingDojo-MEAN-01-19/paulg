@@ -1,0 +1,11 @@
+<section>
+  <h1>Restful Tasks Interactive</h1>
+  <button (click)='pullAllTasks()'>Get All Tasks</button>
+  <div *ngIf='taskList'>
+    <div *ngFor='let task of taskList'>
+      <p>{{ task.title }}</p>
+      <button (click)='showDetails(task)'>Show</button>
+    </div>
+  </div>
+</section>
+<app-task-details [task]='selectedTask'></app-task-details>
