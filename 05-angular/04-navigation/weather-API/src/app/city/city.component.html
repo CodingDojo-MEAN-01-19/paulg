@@ -1,0 +1,31 @@
+<ul>
+  <li><h4>Humidity: {{ currCity['main']['humidity'] }}</h4></li>
+  <li><h4>Temperature(Average): {{ currCity['main']['temp'] }}°F </h4></li>
+  <li><h4>Temperature(Low): {{ currCity['main']['temp_min'] }}°F</h4></li>
+  <div *ngIf="city['clouds']['all']> 60;then content else other_content">here is ignored</div>
+  <ng-template #content><li><h4>Status: Mostly cloudy</h4></li></ng-template>
+  <ng-template #other_content><li><h4>Status: Partly cloudy</h4></li></ng-template>
+</ul>
+<div style="float: right; margin-right: /* 82px */;" *ngIf="city['name'] == 'Dallas'">
+  <img src="https://static1.squarespace.com/static/55e72848e4b07d5e3db159f8/t/55e72ea2e4b08a87a193945b/1441214122315/dallas-skyline.jpg" alt="Dallas" width="auto" height="200px">
+</div>
+
+<div style="float: right; margin-right: 82px;" *ngIf="city['name'] == 'Chicago'">
+  <img src="https://nyc3.digitaloceanspaces.com/production-age-friendly/uploads/city/16430/main_image/Chicago-IL.jpg" alt="Chicago" width="auto" height="200px">
+</div>
+
+<div style="float: right; margin-right: 82px;" *ngIf="city['name'] == 'Seattle'">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Seattle_Center_as_night_falls.jpg/800px-Seattle_Center_as_night_falls.jpg" alt="Seattle" width="auto" height="200px">
+</div>
+
+<div style="float: right; margin-right: 82px;" *ngIf="city['name'] == 'Burbank'">
+  <img src="http://data.websitebox.com/data/users/0014/699/uploads/SAA_cbburbankcaliforniajef13070116x9992jpg.jpg" alt="Burbank" width="auto" height="200px">
+</div>
+
+<div style="float: right; margin-right: 82px;" *ngIf="city['name'] == 'District of Columbia'">
+  <img src="https://kids.nationalgeographic.com/content/dam/kids/photos/States/O-W/washington-dc-capitol.ngsversion.1435610747994.adapt.1900.1.jpg" alt="District of Columbia" width="auto" height="200px">
+</div>
+
+<div style="float: right; margin-right: 82px;" *ngIf="city['name'] == 'San Jose'">
+  <img src="https://www.mercurynews.com/wp-content/uploads/2016/08/20150924__0925diridon2.jpg" alt="San Jose" width="auto" height="200px">
+</div>
